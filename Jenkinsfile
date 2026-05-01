@@ -23,13 +23,11 @@ pipeline {
             steps {
                 sshagent(['docker-ssh']) {
                     sh '''
-                        ssh -o StrictHostKeyChecking=no ubuntu@52.90.153.54 << EOF
-
-                        set -e
-                        cd /home/ubuntu/jenkins-pipeline-docker
-                        git pull origin main
-
-                        EOF
+                        ssh -o StrictHostKeyChecking=no ubuntu@52.90.153.54 "
+                            set -e
+                            cd /home/ubuntu/jenkins-pipeline-docker
+                            git pull origin main
+                        "
                     '''
                 }
             }
@@ -39,13 +37,11 @@ pipeline {
             steps {
                 sshagent(['docker-ssh']) {
                     sh '''
-                        ssh -o StrictHostKeyChecking=no ubuntu@52.90.153.54 << EOF
-
-                        set -e
-                        cd /home/ubuntu/jenkins-pipeline-docker
-                        sudo docker compose up --build -d
-
-                        EOF
+                        ssh -o StrictHostKeyChecking=no ubuntu@52.90.153.54 "
+                            set -e
+                            cd /home/ubuntu/jenkins-pipeline-docker
+                            sudo docker compose up --build -d
+                        "
                     '''
                 }
             }
