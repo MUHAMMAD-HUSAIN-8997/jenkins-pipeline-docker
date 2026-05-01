@@ -13,7 +13,7 @@ pipeline {
             steps {
                 sshagent(['docker-ssh']) {
                     sh '''
-                        ssh -o StrictHostKeyChecking=no ubuntu@YOUR_EC2_IP "echo Connected Successfully"
+                        ssh -o StrictHostKeyChecking=no ubuntu@52.90.153.54 "echo Connected Successfully"
                     '''
                 }
             }
@@ -23,7 +23,7 @@ pipeline {
             steps {
                 sshagent(['docker-ssh']) {
                     sh '''
-                        ssh -o StrictHostKeyChecking=no ubuntu@YOUR_EC2_IP << 'EOF'
+                        ssh -o StrictHostKeyChecking=no ubuntu@52.90.153.54 << 'EOF'
 
                         set -e
                         cd /home/ubuntu/jenkins-pipeline-docker
@@ -39,7 +39,7 @@ pipeline {
             steps {
                 sshagent(['docker-ssh']) {
                     sh '''
-                        ssh -o StrictHostKeyChecking=no ubuntu@YOUR_EC2_IP << 'EOF'
+                        ssh -o StrictHostKeyChecking=no ubuntu@52.90.153.54 << 'EOF'
 
                         set -e
                         cd /home/ubuntu/jenkins-pipeline-docker
